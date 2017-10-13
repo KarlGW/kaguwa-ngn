@@ -1,0 +1,14 @@
+{
+  "name": "gateway-service",
+  "version": "0.0.1",
+  "description": "Gateway MicroService",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Karl Wallenius",
+  "license": "MIT"
+}

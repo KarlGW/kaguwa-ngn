@@ -5,7 +5,7 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   methodOverride = require('method-override');
 
-module.exports.start = function (options) {
+module.exports.start = (options) => {
 
   var app = express();
   // Configure and add settings to server.
@@ -21,7 +21,7 @@ module.exports.start = function (options) {
   app.use('/api', api);
 
   console.log('App listening on port: ', options.port);
-  var server =  app.listen(options.port, function (err) {
+  var server =  app.listen(options.port, (err) => {
     if (err) {
       console.log(err);
     }

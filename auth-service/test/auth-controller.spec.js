@@ -6,7 +6,7 @@ var should = require('should');
 var sinon = require('sinon');
 var AuthController = require('../controllers/auth-controller');
 
-describe('AuthController', function() {
+describe('AuthController', () => {
 
   options = { uri: 'http://localhost' };
 

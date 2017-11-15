@@ -5,11 +5,11 @@ var UserController = require('../controllers/user-controller');
 
 var router = express.Router();
 
-module.exports = function (options) {
+module.exports = (options) => {
 
   var userController = new UserController(options.repository);
 
-  router.get('/', function (req, res) {
+  router.get('/', (req, res) => {
     res.status(200).json({});
   });
 

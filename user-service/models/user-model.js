@@ -18,7 +18,7 @@ var User = mongoose.Schema({
   disabled: { type: Boolean, default: false },
 });
 
-User.pre('save', function(next) {
+User.pre('save', (next) => {
   var now = new Date();
   if (!this.created_at) {
     this.created_at = now;
@@ -27,12 +27,12 @@ User.pre('save', function(next) {
 });
 
 // Generate hash.
-User.methods.generateHash = function (password) {
+User.methods.generateHash = (password) => {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
 };
 
 // Check if valid.
-User.methods.validPassword = function (password) {
+User.methods.validPassword = (password) => {
   return bcrypt.compareSync(password, this.password);
 };
 

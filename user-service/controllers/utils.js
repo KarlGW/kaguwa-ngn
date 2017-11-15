@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.createError = function (code) {
+module.exports.createError = (code) => {
   var messageStr = '';
 
   if (code === 500) {
@@ -13,7 +13,7 @@ module.exports.createError = function (code) {
   };
 };
 
-module.exports.createNotFound = function (type, listAll, identifier) {
+module.exports.createNotFound = (type, listAll, identifier) => {
   
   if (typeof listAll === undefined) {
     var listAll = false;
@@ -39,7 +39,7 @@ module.exports.createNotFound = function (type, listAll, identifier) {
   }
 };
 
-module.exports.createResourceExist = function (type) {
+module.exports.createResourceExist = (type) => {
 
   var messageStr;
 

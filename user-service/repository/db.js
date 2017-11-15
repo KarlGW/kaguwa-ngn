@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 var db;
 
-module.exports.connect = function (connectionSettings) {
+module.exports.connect = (connectionSettings) => {
 
   var uri = connectionSettings.uri;
   var options = connectionSettings.options;
@@ -14,7 +14,7 @@ module.exports.connect = function (connectionSettings) {
   db = mongoose.connection;
 
   db.on('error', console.error.bind(console, 'connection error:'));
-  db.once('open', function () {
+  db.once('open', () => {
     console.log('Connected to database.');
   });
 

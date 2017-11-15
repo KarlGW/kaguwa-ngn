@@ -17,7 +17,7 @@ class UserController {
    */
   list(req, res) {
 
-    this.repository.list(function (err, users) {
+    this.repository.list((err, users) => {
       if (err) return res.status(500).json(utils.createError(500));
 
       if (users !== null && Object.keys(users).length !== 0) {
@@ -35,7 +35,7 @@ class UserController {
    */
   getUserById(req, res) {
 
-    this.repository.get('id', req.params.id, function (err, user) {
+    this.repository.get('id', req.params.id, (err, user) => {
       if (err) return res.status(500).json(utils.createError(500));
 
       if (user) {
@@ -53,7 +53,7 @@ class UserController {
    */
   getUserByName(req, res) {
     
-    this.repository.get('username', req.params.username, function (err, user) {
+    this.repository.get('username', req.params.username, (err, user) => {
       if (err) return res.status(500).json(utils.createError(500));
 
       if (user) {
@@ -70,7 +70,7 @@ class UserController {
    * @param {*} res 
    */
   getUserByEmail(req, res) {
-    this.repository.get('email', req.params.email, function (err, user) {
+    this.repository.get('email', req.params.email, (err, user) => {
       if (err) return res.status(500).json(utils.createError(500));
 
       if (user) {
@@ -90,7 +90,7 @@ class UserController {
     
     var params = req.body;
 
-    this.repository.add(params, function (err, user) {
+    this.repository.add(params, (err, user) => {
       if (err) {
         if (err.code === 11000) {
           return res.status(409).json(utils.createResourceExist('user'));
@@ -116,7 +116,7 @@ class UserController {
 
     var params = req.body;
 
-    this.repository.update(req.params.id, params, function (err, user) {
+    this.repository.update(req.params.id, params, (err, user) => {
       if (err) return res.status(500).json(utils.createError(500));
 
       if (user) {
@@ -134,7 +134,7 @@ class UserController {
    */
   delete(req, res) {
 
-    this.repository.delete(req.params.id, function (err, result) {
+    this.repository.delete(req.params.id, (err, result) => {
       if (err) return res.status(500).json(utils.createError(500));
 
       if (result === true) {
@@ -152,7 +152,7 @@ class UserController {
    */
   authenticate(req, res) {
 
-    this.repository.authenticate(req.body.username, req.body.password, function (err, result) {
+    this.repository.authenticate(req.body.username, req.body.password, (err, result) => {
       if (err) return res.status(500).json(utils.createError(500));
 
       if (result) {

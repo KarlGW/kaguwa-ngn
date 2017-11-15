@@ -7,7 +7,7 @@ var middleware = require('./middleware');
 var GatewayController = require('../controllers/gateway-controller');
 var AuthController = require('../controllers/auth-controller');
 
-module.exports = function (options) {
+module.exports = (options) => {
   
   var gatewayController = new GatewayController();
   var authController = new AuthController(options.services.authService);

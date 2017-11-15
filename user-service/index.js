@@ -12,11 +12,11 @@ console.log('--- User Service ---');
 console.log('--- Connecting to User Repository ---');
 console.log('');
 
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', (err) => {
   console.error('Unhandled Exception', err);
 });
 
-process.on('unhandledRejection', function (err) {
+process.on('unhandledRejection', (err) => {
   console.error('Unhandled Rejection', err);
 });
 
@@ -28,7 +28,7 @@ var options = {
   model: User, 
 }
 
-UserRepository.connect(options, function (repo) {
+UserRepository.connect(options, (repo) => {
   config.server.repository = repo;
   server.start(config.server);
 });

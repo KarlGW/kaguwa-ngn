@@ -9,7 +9,6 @@ class TokenHandler {
 
   verifyToken(token, callback) {
     
-    
     var tokenSecret = this.secret;
 
     if (token) {

@@ -18,12 +18,12 @@ process.on('unhandledRejection', function (err) {
 
 request.get(config.userService.uri, function (err, httpResponse, body) {
   if (err) {
-    console.log('FAIL: Could not connect to User Service.')
+    console.error('FAIL: Could not connect to User Service.')
     return;
   } 
 
   if (httpResponse.statusCode === 200) {
-    console.log('--- Connection to User Service successfull ---')
+    console.log('--- Connection to User Service successful ---')
     console.log('');
     server.start(config);
   }

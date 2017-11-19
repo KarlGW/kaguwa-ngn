@@ -5,12 +5,17 @@ var AuthController = require('../controllers/auth-controller');
 
 var router = express.Router();
 
-module.exports = function (options) {
+module.exports = (options) => {
 
   var authController = new AuthController(options);
 
-  // Add routes.
-  router.post('/authenticate', authController.authenticate.bind());
+  router.get('/', (req, res) => {
+    res.status(200).json({});
+  })
+
+  router.post('/authenticate', authController.authenticate.bind(authController));
+
+  router.post('/authorize', authController.authorize.bind(authController));
 
   return router;
 };

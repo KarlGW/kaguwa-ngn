@@ -1,11 +1,13 @@
 'use strict';
 
 var auth = require('../lib/auth');
+var TokenHandler = require('../lib/token-handler');
 
 class AuthController {
 
   constructor(options) {
-    this.uri = options.uri || null
+    this.uri = options.userService.uri;
+    this.tokenHandler = new TokenHandler(options.token.secret);
   }
 
   /**
@@ -17,16 +19,17 @@ class AuthController {
    */
   authenticate(req, res) {
     // Temp
-    //var credential = { username: 'karlw', password: '12345' };
     var credential = { username: req.body.username, password: req.body.password };
-    var uri = 'http://localhost:3000/api/users/authenticate';
+    var uri = this.uri + '/users/authenticate';
+
+    var self = this;
     
-    auth.authenticate(uri, credential, function (err, user) {
+    auth.authenticate(uri, credential, (err, user) => {
       if (err) return res.status(500).json({ message: 'Error', code: 500 });
 
       if (user) {
         
-        var token = auth.generateToken(user);
+        var token = self.tokenHandler.generateToken(user);
         
         var tokenResponse = {
           token: token
@@ -39,8 +42,13 @@ class AuthController {
     });
   }
 
-  authorize() {
+  authorize(req, res) {
 
+    this.tokenHandler.verifyToken(req.body.token, (err, decoded) => {
+      if (err) return res.status(403).json({ message: 'Could not authorize.', code: 403 });
+
+      res.status(200).json({ data: decoded.groups});
+    });
   }
 }
 

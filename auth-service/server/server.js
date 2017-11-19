@@ -16,12 +16,12 @@ module.exports.start = function (options) {
   app.use(methodOverride('X-HTTP-Method-Override'));
   app.disable('x-powered-by');
   // Set api.
-  var api = require('../api/auth-api')(options.userService);
+  var api = require('../api/auth-api')(options);
 
   app.use('/api', api);
 
   console.log('App listening on port: ', options.server.port);
-  var server =  app.listen(options.server.port, function (err) {
+  var server =  app.listen(options.server.port, (err) => {
     if (err) {
       console.log(err);
     }

@@ -2,6 +2,7 @@
 
 var express = require('express');
 var UserController = require('../controllers/user-controller');
+var middleware = require('./middleware');
 
 var router = express.Router();
 

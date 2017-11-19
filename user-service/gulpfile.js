@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
-var gulpDocker = require('gulp-docker');
 var path = require('path');
 var del = require('del');
 var webpack = require('webpack');
@@ -34,12 +33,13 @@ gulp.task('run-tests', ['clean'], () => {
     });
 });
 
+gulp.task('build', ['clean', 'run-tests', 'compile', 'copy-package']);
+
+/*
 gulp.task('docker-build', ['copy-package'], (callback) => {
   var dockerArgs = ['build', '-t', 'test:v0.0.1', '.'];
   execCommand('docker', dockerArgs, callback)
-});
-
-gulp.task('build', ['clean', 'run-tests', 'compile', 'copy-package']);
+});*/
 
 // Function run command line tools.
 /*

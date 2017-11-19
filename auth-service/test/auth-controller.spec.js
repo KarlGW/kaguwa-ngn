@@ -8,8 +8,9 @@ var AuthController = require('../controllers/auth-controller');
 
 describe('AuthController', () => {
 
-  options = { uri: 'http://localhost' };
+  /*
+  var options = { uri: 'http://localhost' };
 
   var authController = new AuthController(options);
-
+  */
 });

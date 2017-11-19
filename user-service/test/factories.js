@@ -1,5 +1,5 @@
 // Factories to create mock objects.
-module.exports.createMockUsers = (empty) => {
+module.exports.createMockUsers = function (empty) {
   if (empty) {
     return [];
   } else {
@@ -10,7 +10,7 @@ module.exports.createMockUsers = (empty) => {
   }
 };
 
-module.exports.createMockResponse = (type) => {
+module.exports.createMockResponse = function (type) {
 
   var res =  {
     status: function (httpCode) {
@@ -20,7 +20,7 @@ module.exports.createMockResponse = (type) => {
   };
 
   if (type === 'users') {
-    res.json = (object) => {
+    res.json = function (object) {
       if (object === null || typeof object.message === 'undefined') {
         this.users = object;
       } else {
@@ -29,7 +29,7 @@ module.exports.createMockResponse = (type) => {
       }
     }
   } else if (type === 'user') {
-    res.json = (object) => {
+    res.json = function (object) {
       if (object === null || typeof object.message === 'undefined') {
         this.user = object;
       } else {

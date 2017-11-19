@@ -52,7 +52,7 @@ describe('UserController', function () {
       res.users.should.eql(mockUsers);
       done();
     });
-
+    
     it('should return \'No users.\' if no users can be found', function (done) {
 
       sinon.stub(mockUserRepository, 'list').yields(null, []);
@@ -83,7 +83,7 @@ describe('UserController', function () {
       res.message.should.equal('Error in contacting database.');
       done();
     });
-
+    
   });
 
   describe('getUserById()', function () {
@@ -331,5 +331,4 @@ describe('UserController', function () {
     });
 
   });
-
 });

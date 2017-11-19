@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --timeout 10000"
   },
   "author": "Karl Wallenius",
   "license": "MIT",
@@ -18,5 +18,10 @@
     "method-override": "^2.3.9",
     "morgan": "^1.8.2",
     "request": "^2.82.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "should": "^13.1.3",
+    "sinon": "^4.1.2"
   }
 }

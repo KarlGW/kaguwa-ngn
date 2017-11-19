@@ -35,7 +35,7 @@ module.exports.testServiceConnections = async function (services) {
           console.log('--- Connection successful ---\n');
           connectionResults.push(true);
         } else {
-          console.log(res);
+          console.error(res);
           connectionResults.push(false);
         }
       });

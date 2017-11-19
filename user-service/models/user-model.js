@@ -32,8 +32,8 @@ User.methods.generateHash = (password) => {
 };
 
 // Check if valid.
-User.methods.validPassword = (password) => {
+User.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.password);
-};
+}
 
 module.exports = mongoose.model('user', User);

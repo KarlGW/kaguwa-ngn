@@ -36,8 +36,9 @@ gulp.task('run-tests', ['clean'], () => {
     });
 });
 
-gulp.task('docker-build', ['copy-package'], () => {
-
+gulp.task('docker-build', ['copy-package'], (callback) => {
+  var dockerArgs = ['build', '-t', 'test:v0.0.1', '.'];
+  execCommand('docker', dockerArgs, callback)
 });
 
 gulp.task('build', ['clean', 'run-tests', 'compile', 'copy-package']);

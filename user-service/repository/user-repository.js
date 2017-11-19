@@ -173,9 +173,9 @@ class UserRepository {
   authenticate(username, password, callback) {
 
     var User = this.model;
-    
+   
     User.findOne({ username: username}, function (err, user) {
-      if (err) return callback(err);
+      if (err) return callback(err)
 
       if (user) {
         if (user.validPassword(password)) {

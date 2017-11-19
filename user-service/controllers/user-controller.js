@@ -151,9 +151,9 @@ class UserController {
    * @param {object} res
    */
   authenticate(req, res) {
-
     this.repository.authenticate(req.body.username, req.body.password, (err, result) => {
-      if (err) return res.status(500).json(utils.createError(500));
+
+      if (err) return res.status(500).json(utils.createError(500));    
 
       if (result) {
         res.status(200).json(result);

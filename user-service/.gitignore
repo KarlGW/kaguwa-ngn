@@ -13,7 +13,6 @@ pids
  
 package-lock.json
 config/config.js
-Dockerfile
 
 node_modules/
 build/

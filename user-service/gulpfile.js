@@ -1,5 +1,3 @@
-import { spawn } from 'child_process';
-
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 var gulpDocker = require('gulp-docker');
@@ -44,6 +42,7 @@ gulp.task('docker-build', ['copy-package'], (callback) => {
 gulp.task('build', ['clean', 'run-tests', 'compile', 'copy-package']);
 
 // Function run command line tools.
+/*
 function execCommand(command, args, callback) {
   const ctx = spawn(command, args);
 
@@ -55,3 +54,4 @@ function execCommand(command, args, callback) {
     if (callback) { callback(code === 0 ? null : code)}
   });
 }
+*/

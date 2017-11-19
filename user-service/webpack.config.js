@@ -24,7 +24,12 @@ module.exports = {
   plugins: [
     new UglifyJsPlugin({
       include: /js$/,
-      minimize: true
+      sourceMap: true,
+      uglifyOptions: {
+        output: {
+          comments: false
+        }
+      }
     })
   ],
   devtool: 'sourcemap'

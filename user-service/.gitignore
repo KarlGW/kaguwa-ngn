@@ -16,3 +16,4 @@ config/config.js
 Dockerfile
 
 node_modules/
+build/

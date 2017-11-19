@@ -23,7 +23,8 @@ module.exports.start = (options) => {
   console.log('App listening on port: ', options.port);
   var server =  app.listen(options.port, (err) => {
     if (err) {
-      console.log(err);
+      console.error(err);
+      process.exit(1);
     }
     console.log('App started.');
   });

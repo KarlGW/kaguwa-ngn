@@ -1,11 +1,19 @@
 module.exports = {
+  server: {
+    port: 3000
+  },
+  roles: {
+    readwrite: "admin",
+  },
+  services: {
+    authService: {
+      baseUri: '<url-to-auth-service>'
+     }
+  },
   db: {
-    uri: "mongodb://<ip>:<port>/<col>",
+    uri: "mongodb://<host>:<port>/app",
     options: {
       useMongoClient: true
     }
-  },
-  server: {
-    port: 3000
   }
 };

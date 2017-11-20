@@ -13,11 +13,11 @@ console.log('--- Connecting to User Repository ---');
 console.log('');
 
 process.on('uncaughtException', (err) => {
-  console.error('Unhandled Exception', err);
+  console.error('Unhandled Exception', err.message);
 });
 
 process.on('unhandledRejection', (err) => {
-  console.error('Unhandled Rejection', err);
+  console.error('Unhandled Rejection', err.message);
 });
 
 var options = { 

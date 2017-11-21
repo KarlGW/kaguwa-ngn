@@ -191,7 +191,7 @@ class UserRepository {
   }
 
   disconnect() {
-    this.db.close();
+    this.connection.close();
   }
 }
 

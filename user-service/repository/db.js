@@ -1,13 +1,13 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var db;
 
 module.exports.connect = (connectionSettings) => {
 
-  var uri = connectionSettings.uri;
-  var options = connectionSettings.options;
+  const uri = connectionSettings.uri;
+  const options = connectionSettings.options;
   
+  let db;
   mongoose.Promise = global.Promise;
   mongoose.connect(uri, { useMongoClient: true }).catch(() => { console.log('App stopped.'); process.exit(1) });
 

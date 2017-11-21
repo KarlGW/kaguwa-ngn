@@ -1,6 +1,7 @@
 'use strict';
 
-var express = require('express'),
+var http = require('http'),
+  express = require('express'),
   morgan = require('morgan'),
   bodyParser = require('body-parser'),
   methodOverride = require('method-override');
@@ -20,12 +21,13 @@ module.exports.start = (options) => {
 
   app.use('/api', api);
 
-  console.log('App listening on port: ', options.port);
-  var server =  app.listen(options.port, (err) => {
+  var server = http.createServer(app);
+
+  server.listen(options.port, (err) => {
     if (err) {
       console.error(err);
       process.exit(1);
     }
-    console.log('App started.');
+    console.log('App listening on port: ', options.port);
   });
 };

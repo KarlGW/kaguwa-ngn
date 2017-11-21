@@ -1,17 +1,17 @@
 module.exports = {
   server: {
-    port: 3000
+    port: process.env.port || 3000
   },
   roles: {
-    readwrite: "admin",
+    readwrite: process.env.APP_RW || "admin",
   },
   services: {
     authService: {
-      baseUri: '<url-to-auth-service>'
+      baseUri: process.env.AUTH_SVC_URI || '<url-to-auth-service>'
      }
   },
   db: {
-    uri: "mongodb://<host>:<port>/app",
+    uri: process.env.DB_URI || "mongodb://<host>:<port>/app",
     options: {
       useMongoClient: true
     }

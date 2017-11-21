@@ -6,6 +6,8 @@ ADD ./build /app
 RUN cd /app; \
     npm install --only=production
 
+USER node
+
 EXPOSE 3000
 
-#CMD ["node", "/app/app.js"]
+CMD ["node", "/app/app.js"]

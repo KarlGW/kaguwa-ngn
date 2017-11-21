@@ -1,11 +1,12 @@
 'use strict';
 
-var server = require('./server/server');
-var UserRepository = require('./repository/user-repository');
-var User = require('./models/user-model');
-var config = require('./config/config');
+const server = require('./server/server');
+const UserRepository = require('./repository/user-repository');
+const User = require('./models/user-model');
+const config = require('./config/config');
+const utils = require('./server/utils');
 
-var repository;
+let repository;
 
 // Logging for starting.
 console.log('--- User Service ---');

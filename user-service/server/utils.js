@@ -1,6 +1,5 @@
 module.exports.createShutdownHooks = function (server, repository) {
 
-  console.log(repository.prototype);
   server.on('close', () => {
     console.log('Closing application.');
     process.exit(0);

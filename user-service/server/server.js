@@ -1,10 +1,12 @@
 'use strict';
 
-var http = require('http'),
-  express = require('express'),
-  morgan = require('morgan'),
-  bodyParser = require('body-parser'),
-  methodOverride = require('method-override');
+const http = require('http');
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+
+const utils = require('./utils');
 
 module.exports.start = (options) => {
 
@@ -22,6 +24,8 @@ module.exports.start = (options) => {
   app.use('/api', api);
 
   var server = http.createServer(app);
+
+  utils.createShutdownHooks(server, options.repository);
 
   server.listen(options.port, (err) => {
     if (err) {
